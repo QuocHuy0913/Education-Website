@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 
-const props = defineProps < {
+const props = defineProps<{
     product: {
         id: number | string;
         name: string;
@@ -11,7 +11,7 @@ const props = defineProps < {
         oldPrice?: number;
     };
     viewMode?: 'grid' | 'list';
-} > ();
+}>();
 
 const router = useRouter();
 
@@ -135,7 +135,6 @@ const goToDetail = () => {
     transform: scale(1.05);
 }
 
-/* List view */
 .card.list {
     flex-direction: row;
     max-width: none;
@@ -159,5 +158,42 @@ const goToDetail = () => {
 
 .card.list .desc {
     margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    .card.list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card.list .product-image {
+        width: 100%;
+        height: 180px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .card.list .card-content {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detail-button {
+        opacity: 1 !important;
+        /* Luôn hiện trên mobile */
+        transform: none !important;
+        width: 100%;
+        text-align: center;
+    }
 }
 </style>

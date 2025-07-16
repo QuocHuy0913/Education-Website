@@ -63,7 +63,7 @@ const testimonials = [
     { text: 'EduLearn giúp tôi có kỹ năng để xin việc mơ ước. Giảng viên rất tận tâm!', name: 'Nguyễn Thị A', job: 'Lập trình viên' },
     { text: 'Tôi có thể học bất cứ lúc nào, điều đó thật tuyệt vời khi phải vừa đi làm vừa chăm con.', name: 'Trần Văn B', job: 'Chuyên viên marketing' },
     { text: 'Rất đáng để đầu tư thời gian. Khóa học dễ hiểu và thực tế.', name: 'Lê Thị C', job: 'Chuyên viên dữ liệu' },
-]
+];
 </script>
 <style scoped>
 .homepage {
@@ -89,6 +89,11 @@ const testimonials = [
     margin: 0 auto;
 }
 
+/* Responsive 2 cột -> 1 cột */
+.potential-content {
+    flex-direction: row;
+}
+
 .potential-text {
     flex: 1;
     min-width: 300px;
@@ -112,6 +117,7 @@ const testimonials = [
 
 .potential-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -214,5 +220,68 @@ const testimonials = [
 
 .material-symbols-outlined {
     font-size: 54px;
+}
+
+/* ----------- Responsive (Mobile First) ----------- */
+@media (max-width: 768px) {
+    .potential-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .potential-text {
+        margin-right: 0;
+    }
+
+    .potential-text h1 {
+        font-size: 2rem;
+    }
+
+    .potential-text p {
+        font-size: 1rem;
+    }
+
+    .potential-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .potential-buttons button {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .feature-item,
+    .testimonial-item {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .feature-list,
+    .testimonial-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .material-symbols-outlined {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .potential-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .features h2,
+    .testimonials h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-item h3,
+    .testimonial-item p {
+        font-size: 1rem;
+    }
 }
 </style>

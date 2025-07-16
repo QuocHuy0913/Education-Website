@@ -44,10 +44,11 @@ const clearAll = () => store.clearFavorites()
             </div>
         </div>
         <div class="results">
-            <h3>{{ filteredFavorites.length }} khóa học</h3>
+            <span>{{ filteredFavorites.length }} khóa học</span>
             <button class="clear"
-                    @click="clearAll"><span class="material-symbols-outlined"> delete </span>
-                <h4>Clear all</h4>
+                    @click="clearAll"
+                    title="Xóa tất cả yêu thích">
+                <span class="material-symbols-outlined">delete</span>
             </button>
         </div>
         <div :class="['items', viewMode]">
@@ -76,7 +77,7 @@ const clearAll = () => store.clearFavorites()
 </template>
 <style scoped>
 .favorites-page {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 1200px;
     margin: auto;
 }
@@ -125,17 +126,19 @@ h3 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .clear {
     background: none;
     border: 1px solid #ccc;
     border-radius: 6px;
-    padding: 0.5rem 0.5rem;
+    padding: 0.4rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .items.grid {
@@ -171,5 +174,54 @@ h3 {
 
 .suggest-btn:hover {
     background-color: #fdd835;
+}
+
+@media (max-width: 768px) {
+    .favorites-page {
+        padding: 1rem;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar input {
+        width: 100%;
+    }
+
+    .view-mode {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .results {
+        justify-content: space-between;
+        font-size: 14px;
+    }
+
+    .clear {
+        padding: 0.3rem;
+    }
+
+    .clear h4 {
+        display: none;
+    }
+
+    .items.grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .suggest-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 </style>
