@@ -1,0 +1,11 @@
+@import './base.css';
+
+#app {
+  margin: 0;
+  font-weight: normal;
+}
+
+.material-symbols-outlined {
+  margin: 0;
+  color: #7455e6;
+}
