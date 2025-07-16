@@ -1,29 +1,26 @@
 # Education-Website
 
-This template should help get you started developing with Vue 3 in Vite.
+# 📘 Vue 3 Learning Platform
 
-## Recommended IDE Setup
+Dự án được xây dựng bằng Vue 3 sử dụng Vite, Pinia để quản lý state và `vue3-toastify` để hiển thị thông báo. Đây là nền tảng học tập trực tuyến đơn giản, có chức năng yêu thích khóa học, gợi ý sản phẩm, và phân loại theo chế độ hiển thị Grid/List.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## 🚀 Cài đặt
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```bash
+# 1. Clone dự án
+git clone https://github.com/your-username/your-project-name.git
+cd your-project-name
 
-## Project Setup
-
-```sh
+# 2. Cài đặt dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
+🧪 Chạy ở chế độ phát triển
 npm run dev
-```
+Mặc định sẽ chạy ở: http://localhost:5173
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
+
