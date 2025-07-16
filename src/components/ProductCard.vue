@@ -67,9 +67,23 @@ const goToDetail = () => {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    position: relative;
     height: 100%;
 }
+
+.card-content h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.8em;
+}
+
 
 .card:hover {
     transform: translateY(-8px);
@@ -182,6 +196,11 @@ const goToDetail = () => {
         width: 100%;
     }
 
+    .desc {
+        margin: 0.5rem 0;
+        font-size: 13px;
+    }
+
     .card-footer {
         flex-direction: column;
         align-items: flex-start;
@@ -190,7 +209,6 @@ const goToDetail = () => {
 
     .detail-button {
         opacity: 1 !important;
-        /* Luôn hiện trên mobile */
         transform: none !important;
         width: 100%;
         text-align: center;
