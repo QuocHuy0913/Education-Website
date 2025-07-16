@@ -3,6 +3,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
 import { allProducts } from '@/data/products.js'
 import { useFavoriteStore } from '@/stores/favoritesStore'
+import { toast } from 'vue3-toastify'
 
 const route = useRoute()
 const router = useRouter()
@@ -14,9 +15,14 @@ const isFavorited = computed(() => favoriteStore.favorites.some(fav => fav.id ==
 
 const toggleFavorite = () => {
     if (!product.value) return
-    isFavorited.value
-        ? favoriteStore.removeFavorite(product.value.id)
-        : favoriteStore.addFavorite(product.value)
+
+    if (isFavorited.value) {
+        favoriteStore.removeFavorite(product.value.id)
+        toast.info(`Đã xóa "${product.value.name}" khỏi yêu thích`) // nếu dùng vue3-toastify
+    } else {
+        favoriteStore.addFavorite(product.value)
+        toast.success(`Đã thêm "${product.value.name}" vào yêu thích`)
+    }
 }
 
 const formatCurrency = price => price.toLocaleString('vi-VN') + 'đ'
@@ -267,8 +273,9 @@ h1 {
 }
 
 .favorite-button {
-    border: 2px solid red;
-    color: red;
+    border: 2px solid #ff0037;
+    color: #ff0037;
+    background-color: white;
     padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
