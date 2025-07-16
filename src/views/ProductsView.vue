@@ -106,12 +106,23 @@ const loadMore = () => {
 
 .filter-section {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
-.filter-section input,
+.filter-section input {
+    flex: 2 1 300px;
+    max-width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
 .filter-section select {
+    flex: 1 1 150px;
+    max-width: 100%;
     padding: 0.5rem;
     border-radius: 8px;
     border: 1px solid #ccc;
